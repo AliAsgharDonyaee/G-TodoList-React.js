@@ -1,4 +1,5 @@
 import "./App.css";
+import ContextProvider from "./components/context/ContextProvider";
 import TodoLists from "./components/TodoLists";
 import SideBar from "./layout/SideBar";
 
@@ -7,8 +8,10 @@ import SideBar from "./layout/SideBar";
 function App() {
 	return (
 		<section id='App' className='w-full h-full flex'>
-			<SideBar />
-			<TodoLists />
+			<ContextProvider>
+				<SideBar />
+				<TodoLists />
+			</ContextProvider>
 		</section>
 	);
 }

@@ -15,10 +15,10 @@ const SideBar = () => {
 	};
 
 	return (
-		<section id='SideBar' className='pb-16 w-[10%] h-full bg-white'>
+		<section id='SideBar' className='pb-16 w-[10%] h-full bg-white dark:bg-slate-600'>
 			<article id='SideBar__article' className=' rounded-b-3xl bg-slate-300 dark:bg-slate-800 w-full h-full'>
 				<div id='SideBar__article__box-title' className='px-2 w-full h-[8vh] flex justify-between items-center'>
-					<h1 className='text-2xl text-gray-800 font-bold'>Todo List</h1>
+					<h1 className='text-2xl text-gray-800 dark:text-white font-bold'>Todo List</h1>
 					<DarkModeSwitch checked={darkSide} onChange={toggleDarkMode} color={"rgb(31,41,55)"} size={24} />
 				</div>
 				<hr className='mx-auto w-11/12 border-slate-400' />
@@ -26,7 +26,7 @@ const SideBar = () => {
 					<ButtonSideBar id={"add_btn"} Icon={BsPlusLg} />
 				</div>
 			</article>
-			<footer id='Footer' className='p-2 text-center font-bold text-gray-600'>
+			<footer id='Footer' className='p-2 text-center font-bold text-gray-600 dark:text-gray-300'>
 				<p>Made with &#x2661; in Codawin - v {data.version}</p>
 			</footer>
 		</section>
