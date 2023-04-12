@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
 import { useContextBtn } from "./context/ContextProvider";
 import axios from "axios";
@@ -18,18 +18,20 @@ const AddTodo = () => {
 				>
 					<textarea
 						value={text}
+						autoFocus
 						onChange={(e) => setText(e.target.value)}
-						className='w-full h-full dark:text-white relative z-0'
+						className='w-full h-full font-bold text-gray-800 dark:text-white dark:bg-inherit relative z-0'
 						placeholder='add you todo ...'
 					></textarea>
 					<div className='shadow-lg rounded-lg mx-auto w-11/12 h-10 bg-gray-700 text-white -translate-y-2 opacity-0 transition-all group-hover:-translate-y-6 group-hover:opacity-100 flex justify-around items-center z-10'>
 						<button
 							className='w-10 h-10 text-2xl transition-all hover:text-blue-500 flex justify-center items-center'
-							onClick={() => {
-								axios
+							onClick={async () => {
+								await axios
 									.post(`${baseUrl}/todos`, {
-										title: text,
 										id: Math.floor(Math.random() * 1000000),
+										title: text,
+										check: false,
 									})
 									.then((res) => console.log(res))
 									.catch((err) => console.log(err));
